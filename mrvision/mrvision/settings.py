@@ -53,6 +53,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mrvision.urls'
 
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/posts/'
+
+LOGOUT_REDIRECT_URL = '/posts/'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

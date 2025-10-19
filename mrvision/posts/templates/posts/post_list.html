@@ -10,10 +10,14 @@ MR Vision
 <a class="btn btn-primary" href="{% url 'post_create' %}">Create Post</a>
 
 <div class="container row gap-3 ">
-    This is matee
+
     {% for post in posts %}
     <div class="card" style="width: 18rem;">
-        <img src="{{post.photo.url}}" class="card-img-top" alt="...">
+        {% if post.photo %}
+        <img src="{{ post.photo.url }}" class="card-img-top" alt="Post image">
+        {% else %}
+        <img src="/static/default.jpg" class="card-img-top" alt="Default image">
+        {% endif %}
         <div class="card-body">
             <h5 class="card-title">{{post.user.username}}</h5>
             <p class="card-text">{{post.text}}</p>

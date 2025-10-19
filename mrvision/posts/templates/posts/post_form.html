@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+MR Vision
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mt-4">Welcome Form Content Block</h1>
+<h2 class="text-center mt-4">
+    {% if form.instance.pk %}
+    Edit Post
+
+    {% else %}
+    Create Post
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+
+        {{form.as_p}}
+        <button class="btn btn-warning" type="submit">Submit</button>
+        <a class="btn btn-warning href=" {% url 'post_list' %}">Back to Tweet List </a>
+    </form>
+</h2>
+
+{% endblock %}
