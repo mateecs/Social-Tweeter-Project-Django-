@@ -30,9 +30,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="posts">Home</a>
                     <a class="nav-link" href="#">Services</a>
                     <a class="nav-link" href="#">Pricing</a>
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button class="btn btn-danger " type="submit">Logout</button>
+                    </form>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary mx-2">Login</a>
+                    <a href="{% url 'register' %}" class="btn btn-primary mx-2">Register</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
