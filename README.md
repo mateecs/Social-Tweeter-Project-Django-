@@ -1,2 +1,3 @@
-﻿# Social Tweeter Full stack Python Django
+﻿# Social Tweeter Application Full stack Python Django
+
 
